@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+http://www.springframework.org/schema/context  
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"> </property>
+		<property name="url" value="jdbc:mysql://localhost:3306/movieinfo"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="Welcome123"></property>
+	</bean>
+	
+	<bean id="mySessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="annotatedClasses">
+		<list>
+			<value>com.mindtree.entity.Movie</value>
+			<value>com.mindtree.entity.Genre</value>
+			<value>com.mindtree.entity.Actors</value>
+		</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="template" class="org.springframework.orm.hibernate4.HibernateTemplate">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
+	
+	<bean id="objMovie" class="com.mindtree.entity.Movie" scope="prototype">
+	</bean>
+	
+	<bean id="objMovieService" class="com.mindtree.service.impl.MovieServiceImpl" scope="prototype">
+	</bean>
+	
+	<bean id="objMovieDao" class="com.mindtree.dao.impl.MovieDaoImpl" scope="prototype">
+		<property name="template">
+		<ref bean="template"/></property>
+	</bean>
+	
+	<bean id="objGenre" class="com.mindtree.entity.Genre" scope="prototype">
+	</bean>
+	
+	<bean id="objGenreService" class="com.mindtree.service.impl.GenreServiceImpl" scope="prototype">
+	</bean>
+	
+	<bean id="objGenreDao" class="com.mindtree.dao.impl.GenreDaoImpl" scope="prototype">
+		<property name="template">
+		<ref bean="template"/></property>
+	</bean>
+	
+	<bean id="objActors" class="com.mindtree.entity.Actors" scope="prototype">
+	</bean>
+	
+	<bean id="objActorsService" class="com.mindtree.service.impl.ActorsServiceImpl" scope="prototype">
+	</bean>
+	
+	<bean id="objActorsDao" class="com.mindtree.dao.impl.ActorsDaoImpl" scope="prototype">
+		<property name="template">
+		<ref bean="template"/></property>
+	</bean>
+
+</beans>
