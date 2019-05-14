@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title hereMovie</title>
+<title>Insert title hereMovieInfo</title>
 </head>
 <body>
 
