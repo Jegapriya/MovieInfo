@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>My Ist Movie Information</title>
+<title>My 1st Movie Information</title>
 </head>
 <body>
 
