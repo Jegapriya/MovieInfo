@@ -1,4 +1,5 @@
 <html>
+	<title>Movie Info</title>
 <style>
 	body {
     	background-color: #00FFBB;
