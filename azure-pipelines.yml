@@ -19,6 +19,6 @@ steps:
     resourceGroupName: 'AzureResourceGroup'
     location: 'East US'
     templateLocation: 'Linked artifact'
-    csmFile: 'MovieInfo/azuredeploy.json'
+    csmFile: 'azuredeploy.json'
     overrideParameters: '-projectName https://github.com/Jegapriya/MovieInfo -linkedTemplateUri https://github.com/Jegapriya/MovieInfo/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
