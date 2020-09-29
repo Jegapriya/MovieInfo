@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Free Trial(77b2080d-b6b8-4f69-9102-f6db5e76878e)'
+    subscriptionId: '77b2080d-b6b8-4f69-9102-f6db5e76878e'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'AzureResourceGroup'
+    location: 'Central US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'azuredeploy.json'
+    overrideParameters: '-projectName MovieInf -linkedTemplateUri https://raw.githubusercontent.com/Jegapriya/MovieInfo/master/linkedStorageAccount.json'
+    deploymentMode: 'Incremental'
