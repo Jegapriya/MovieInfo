@@ -20,5 +20,5 @@ steps:
     location: 'East US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'azuredeploy.json'
-    overrideParameters: '-projectName   -linkedTemplateUri https://raw.githubusercontent.com/Jegapriya/MovieInfo/master/linkedStorageAccount.json'
+    overrideParameters: '-projectName jegapriya  -linkedTemplateUri https://raw.githubusercontent.com/Jegapriya/MovieInfo/master/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
