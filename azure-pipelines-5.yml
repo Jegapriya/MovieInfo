@@ -16,7 +16,7 @@ steps:
     azureResourceManagerConnection: 'Free Trial(77b2080d-b6b8-4f69-9102-f6db5e76878e)'
     subscriptionId: '77b2080d-b6b8-4f69-9102-f6db5e76878e'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'AzureResourceGroup'
+    resourceGroupName: 'AzureResourceGroup1'
     location: 'East US 2'
     templateLocation: 'Linked artifact'
     csmFile: 'azuredeploy.json'
